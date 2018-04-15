@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class UserDaoImpl implements UserDao{
 	 //static File file = new File("user.txt");  
-	static File file =new File("C:\\Users\\zhong\\eclipse-workspace\\data","user.txt");
+	static File file =new File("C:\\Users\\zhong\\eclipse-workspace\\zhong_managementSystem\\data","user.txt");
 
 	/*
 	 * 在user.txt文件中存有"aaa--bbb",其中aaa为用户名，bbb为密码，通过调用该方法验证用户名和密码

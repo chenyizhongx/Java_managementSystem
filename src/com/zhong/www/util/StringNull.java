@@ -1,6 +1,6 @@
 package com.zhong.www.util;
 /**
- * 判断输入是否为空
+ * 判断登录时输入的用户名和密码是否为空，若为空则弹出弹窗提示
  * @author zhong
  *
  */

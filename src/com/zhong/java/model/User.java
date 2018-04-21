@@ -1,8 +1,8 @@
-package com.zhong.java.dao;
+package com.zhong.java.model;
 /**
  * User ΚµΜε
  * @author zhong
- *
+ *   
  */
 public class User {
 	

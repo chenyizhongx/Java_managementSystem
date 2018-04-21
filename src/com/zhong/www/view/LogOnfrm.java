@@ -1,42 +1,37 @@
 package com.zhong.www.view;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import com.zhong.java.dao.User;
-import com.zhong.java.dao.UserDao;
-import com.zhong.java.dao.UserDaoImpl;
-import com.zhong.www.util.StringNull;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton; 
-import java.awt.Color;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.DropMode;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-public class LogOnfrm extends JFrame {
+import com.zhong.java.dao.UserDao;
+import com.zhong.java.model.User;
+import com.zhong.www.util.DbUtil;
+import com.zhong.www.util.StringNull;
+
+public class LogOnFrm extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField UserNameTxt;
 	private JPasswordField passwordTxt;
 	
-	private User user = new User();
+	private DbUtil dbUtil = new DbUtil();
+	private UserDao userDao = new UserDao();
 
 	/**
 	 * Launch the application.
@@ -45,7 +40,7 @@ public class LogOnfrm extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LogOnfrm frame = new LogOnfrm();
+					LogOnFrm frame = new LogOnFrm();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +52,7 @@ public class LogOnfrm extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LogOnfrm() {
+	public LogOnFrm() {
 		setResizable(false);
 		setTitle("\u5B66\u751F\u7BA1\u7406\u7CFB\u7EDF\u767B\u9646");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +62,7 @@ public class LogOnfrm extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("\u5B66\u751F\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
-		lblNewLabel.setIcon(new ImageIcon(LogOnfrm.class.getResource("/com/zhong/www/image/hat.png")));
+		lblNewLabel.setIcon(new ImageIcon(LogOnFrm.class.getResource("/com/zhong/www/image/hat.png")));
 		lblNewLabel.setFont(new Font("微软雅黑", Font.PLAIN, 33));
 		
 		JLabel lblNewLabel_1 = new JLabel("\u7528\u6237\u540D\uFF1A");
@@ -77,6 +72,7 @@ public class LogOnfrm extends JFrame {
 		lblNewLabel_2.setFont(new Font("幼圆", Font.BOLD, 25));
 		
 		UserNameTxt = new JTextField();
+		UserNameTxt.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 20));
 		UserNameTxt.setColumns(10);
 		
 		JButton logIn = new JButton("\u767B\u5F55");
@@ -98,6 +94,7 @@ public class LogOnfrm extends JFrame {
 		reset.setForeground(new Color(0, 0, 128));
 		
 		passwordTxt = new JPasswordField();
+		passwordTxt.setFont(new Font("宋体", Font.PLAIN, 20));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -144,6 +141,8 @@ public class LogOnfrm extends JFrame {
 					.addContainerGap(42, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
+		//设置居中
+		this.setLocationRelativeTo(null);
 	}
 	/**
 	 * 登录事件处理
@@ -162,17 +161,23 @@ public class LogOnfrm extends JFrame {
 			//输出信息后结束方法
 			JOptionPane.showMessageDialog(null, "密码不能为空！");
 			return;
-		}	 
-		UserDaoImpl udi = new UserDaoImpl();  
+		}	   
 		User user = new User(UserName,password);
-		//判断是否登录成功
-        boolean flag = udi.isLogin(UserName, password);  
-        if (flag) {  
-			JOptionPane.showMessageDialog(null, "登录成功！");
-        }else{  
-			JOptionPane.showMessageDialog(null, "密码或用户名错误！");
-        }  
-        
+		Connection con = null;
+		try {
+			con = dbUtil.getCon();
+			User currentUser = userDao.login(con, user);
+			if (currentUser != null) {  
+				dispose();
+				//JOptionPane.showMessageDialog(null, "登录成功！");
+				new TeacherFrm().setVisible(true);
+				
+			}else{  
+				JOptionPane.showMessageDialog(null, "密码或用户名错误！");
+			}  
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -185,3 +190,9 @@ public class LogOnfrm extends JFrame {
 		this.passwordTxt.setText("");
 	}
 }
+
+
+
+
+
+

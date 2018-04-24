@@ -23,15 +23,21 @@ import com.zhong.java.dao.UserDao;
 import com.zhong.java.model.User;
 import com.zhong.www.util.DbUtil;
 import com.zhong.www.util.StringNull;
+import javax.swing.JRadioButton;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ButtonGroup;
 
 public class LogOnFrm extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField UserNameTxt;
 	private JPasswordField passwordTxt;
+	private JRadioButton teacher;
+	private JRadioButton student;
 	
 	private DbUtil dbUtil = new DbUtil();
 	private UserDao userDao = new UserDao();
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -56,13 +62,12 @@ public class LogOnFrm extends JFrame {
 		setResizable(false);
 		setTitle("\u5B66\u751F\u7BA1\u7406\u7CFB\u7EDF\u767B\u9646");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 690, 506);
+		setBounds(100, 100, 726, 506);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("\u5B66\u751F\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
-		lblNewLabel.setIcon(new ImageIcon(LogOnFrm.class.getResource("/com/zhong/www/image/hat.png")));
 		lblNewLabel.setFont(new Font("微软雅黑", Font.PLAIN, 33));
 		
 		JLabel lblNewLabel_1 = new JLabel("\u7528\u6237\u540D\uFF1A");
@@ -95,38 +100,59 @@ public class LogOnFrm extends JFrame {
 		
 		passwordTxt = new JPasswordField();
 		passwordTxt.setFont(new Font("宋体", Font.PLAIN, 20));
+		
+		teacher = new JRadioButton("\u6559\u5E08");
+		teacher.setSelected(true);
+		teacher.setFont(new Font("黑体", Font.PLAIN, 15));
+		buttonGroup.add(teacher);
+		
+		student = new JRadioButton("\u5B66\u751F");
+		student.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		student.setFont(new Font("黑体", Font.PLAIN, 15));
+		buttonGroup.add(student);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(149)
-					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
-					.addGap(127))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(175)
+					.addGap(201)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(49)
-							.addComponent(reset, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
-							.addGap(78)
-							.addComponent(logIn, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-							.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(gl_contentPane.createSequentialGroup()
 								.addComponent(lblNewLabel_2)
 								.addGap(18)
 								.addComponent(passwordTxt, GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-							.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createSequentialGroup()
 								.addComponent(lblNewLabel_1)
 								.addGap(17)
-								.addComponent(UserNameTxt, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(187, Short.MAX_VALUE))
+								.addComponent(UserNameTxt, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(81)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addComponent(reset, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
+								.addComponent(teacher))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(47)
+									.addComponent(logIn, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(63)
+									.addComponent(student)))))
+					.addContainerGap(195, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(214)
+					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+					.addGap(62))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(43)
+					.addGap(44)
 					.addComponent(lblNewLabel)
-					.addGap(55)
+					.addGap(54)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addComponent(lblNewLabel_1)
 						.addComponent(UserNameTxt, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
@@ -134,16 +160,21 @@ public class LogOnFrm extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_2)
 						.addComponent(passwordTxt, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
-					.addGap(53)
+					.addGap(51)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(student)
+						.addComponent(teacher))
+					.addGap(26)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(logIn, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
 						.addComponent(reset, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(42, Short.MAX_VALUE))
+					.addGap(76))
 		);
 		contentPane.setLayout(gl_contentPane);
 		//设置居中
 		this.setLocationRelativeTo(null);
 	}
+
 	/**
 	 * 登录事件处理
 	 * @param arg0
@@ -151,6 +182,12 @@ public class LogOnFrm extends JFrame {
 	private void loginActionPerformed(ActionEvent evt) {
 		String UserName = this.UserNameTxt.getText();
 		String password = new String(this.passwordTxt.getPassword());
+		String flag;
+		if(teacher.isSelected()) {
+			flag = "1";
+		}else {
+			flag = "0";
+		}
 		
 		if(StringNull.isEmply(UserName)) {
 			//输出信息后结束方法
@@ -162,7 +199,7 @@ public class LogOnFrm extends JFrame {
 			JOptionPane.showMessageDialog(null, "密码不能为空！");
 			return;
 		}	   
-		User user = new User(UserName,password);
+		User user = new User(UserName,password,flag);
 		Connection con = null;
 		try {
 			con = dbUtil.getCon();
@@ -170,7 +207,11 @@ public class LogOnFrm extends JFrame {
 			if (currentUser != null) {  
 				dispose();
 				//JOptionPane.showMessageDialog(null, "登录成功！");
-				new TeacherFrm().setVisible(true);
+				if(flag == "1") {
+					new TeacherFrm().setVisible(true);
+				}else {
+					new StudentFrm().setVisible(true);
+				}
 				
 			}else{  
 				JOptionPane.showMessageDialog(null, "密码或用户名错误！");

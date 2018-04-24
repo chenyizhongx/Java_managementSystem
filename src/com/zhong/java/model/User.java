@@ -10,6 +10,7 @@ public class User {
 	private int id;
 	private String UserName;
 	private String password;
+	private String flag;
 	
 	public User() {
 		super();
@@ -17,9 +18,17 @@ public class User {
 	}
 	
 	//生成构造方法
-	public User(String userName, String password) {
+	public User(String userName, String password, String flag) {
 		super();
 		UserName = userName;
+		this.flag = flag;
+		this.password = password;
+	}
+	
+
+	public User(String userName, String password) {
+		super();
+		this.UserName = userName;
 		this.password = password;
 	}
 
@@ -41,6 +50,12 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getflag() {
+		return flag;
+	}
+	public void setflag(String flag) {
+		this.flag = flag;
 	}
 	
 	

@@ -28,6 +28,19 @@ public class StuInformation {
 
 
 
+ 
+	public StuInformation(int id, String stuNum, String stuName, String sex, String mail, String phone) {
+		super();
+		this.id = id;
+		this.stuNum = stuNum;
+		this.stuName = stuName;
+		this.sex = sex;
+		this.mail = mail;
+		this.phone = phone;
+	}
+
+
+
 
 	public StuInformation(String stuNum, String stuName, String sex, String mail, String phone) {
 		super();
@@ -75,6 +88,14 @@ public class StuInformation {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+
+
+
+	public static void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
 	}
 	 
 	

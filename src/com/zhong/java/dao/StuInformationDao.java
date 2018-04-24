@@ -32,6 +32,7 @@ public class StuInformationDao {
 		
 		return pstmt.executeUpdate();
 	}
+ 	
  	/**
  	 * 学生信息查询
  	 * @param con
@@ -51,8 +52,36 @@ public class StuInformationDao {
  		PreparedStatement pstmt = con.prepareStatement(sb.toString().replaceFirst("and", "where"));
 		return pstmt.executeQuery();
  	}
- 	
- 	
+ 	/**
+ 	 * 学生信息删除
+ 	 * @param con
+ 	 * @param id
+ 	 * @return
+ 	 * @throws Exception
+ 	 */
+ 	public int delete(Connection con,String stuNum)throws Exception{
+ 		String sql = "delete from t_stuInformation where stuNum = ?";
+ 		PreparedStatement pstmt = con.prepareStatement(sql);
+ 		pstmt.setString(1, stuNum);  //将第一个id设成1
+ 		return pstmt.executeUpdate();
+ 	}
+ 	/**
+ 	 * 学生信息修改
+ 	 * @param con
+ 	 * @param stuInformation
+ 	 * @return
+ 	 * @throws Exception
+ 	 */
+ 	public int update(Connection con,StuInformation stuInformation) throws Exception{
+ 		String sql = "update t_stuInformation set stuName = ?, sex = ?, mail = ?, phone = ? where stuNum = ?";
+ 		PreparedStatement pstmt = con.prepareStatement(sql);
+ 		pstmt.setString(1, stuInformation.getStuName());
+ 		pstmt.setString(2, stuInformation.getSex());
+ 		pstmt.setString(3, stuInformation.getMail());
+ 		pstmt.setString(4, stuInformation.getPhone());
+ 		pstmt.setString(5, stuInformation.getStuNum());
+ 		return pstmt.executeUpdate();
+ 	}
  	
 }
 

@@ -19,7 +19,9 @@ import javax.swing.JButton;
 import javax.swing.event.AncestorListener;
 
 import com.zhong.java.dao.StuInformationDao;
+import com.zhong.java.dao.UserDao;
 import com.zhong.java.model.StuInformation;
+import com.zhong.java.model.User;
 import com.zhong.www.util.DbUtil;
 import com.zhong.www.util.StringNull;
 
@@ -43,6 +45,7 @@ public class AddStuFrm extends JInternalFrame {
 	
 	private DbUtil dbUtil = new DbUtil();
 	private StuInformationDao StuInformationDao = new StuInformationDao();
+	private UserDao UserDao = new UserDao();
 	
 
 	/**
@@ -244,7 +247,7 @@ public class AddStuFrm extends JInternalFrame {
 			JOptionPane.showMessageDialog(null, "电话号码不能为空！");
 			return;
 		}
-		
+		 
 		String sex = "";
 		if(MaleJre.isSelected()) {
 			sex = "男";
@@ -253,11 +256,13 @@ public class AddStuFrm extends JInternalFrame {
 		}
 		
 		StuInformation stuInformation = new StuInformation(stuNum, stuName, sex, mail, phone);
+		User user = new User(stuName, stuNum);
 		
 		Connection con = null;
 		try {
 			con = dbUtil.getCon();
 			int addStuInformation = StuInformationDao.add(con, stuInformation);
+			int adduser = UserDao.stuLoginAdd(con,user);
 			if(addStuInformation == 1) {
 				JOptionPane.showMessageDialog(null, "学生信息添加成功！");
 				resetValue();
@@ -278,7 +283,9 @@ public class AddStuFrm extends JInternalFrame {
 		
 		
 		}
-
+	/**
+	 * 重置表单
+	 */
 	private void resetValue() {
 		this.StuNumTxt.setText("");
 		this.NameTxt.setText("");

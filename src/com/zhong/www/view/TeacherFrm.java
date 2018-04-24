@@ -61,23 +61,6 @@ public class TeacherFrm extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("\u6210\u7EE9\u7BA1\u7406");
-		mnNewMenu.setIcon(new ImageIcon(TeacherFrm.class.getResource("/com/sun/javafx/scene/control/skin/modena/dialog-more-details.png")));
-		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5B89\u5168\u9000\u51FA");
-		mntmNewMenuItem_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//弹出窗口确认是否退出
-				int result = JOptionPane.showConfirmDialog(null, "是否推出系统");
-				if(0 == result) {
-					dispose();
-				}
-			}
-		});
-		mntmNewMenuItem_3.setIcon(new ImageIcon(TeacherFrm.class.getResource("/javax/swing/plaf/metal/icons/ocean/close.gif")));
-		mnNewMenu.add(mntmNewMenuItem_3);
-		
 		JMenu menu = new JMenu("\u4FE1\u606F\u7BA1\u7406");
 		menu.setIcon(new ImageIcon(TeacherFrm.class.getResource("/com/sun/javafx/scene/control/skin/modena/dialog-more-details.png")));
 		menuBar.add(menu);
@@ -103,6 +86,23 @@ public class TeacherFrm extends JFrame {
 		});
 		mntmNewMenuItem_1.setIcon(new ImageIcon(TeacherFrm.class.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed.gif")));
 		menu.add(mntmNewMenuItem_1);
+		
+		JMenu mnNewMenu = new JMenu("\u7CFB\u7EDF");
+		mnNewMenu.setIcon(new ImageIcon(TeacherFrm.class.getResource("/com/sun/javafx/scene/control/skin/modena/dialog-more-details.png")));
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5B89\u5168\u9000\u51FA");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//弹出窗口确认是否退出
+				int result = JOptionPane.showConfirmDialog(null, "是否推出系统");
+				if(0 == result) {
+					dispose();
+				}
+			}
+		});
+		mntmNewMenuItem_3.setIcon(new ImageIcon(TeacherFrm.class.getResource("/javax/swing/plaf/metal/icons/ocean/close.gif")));
+		mnNewMenu.add(mntmNewMenuItem_3);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

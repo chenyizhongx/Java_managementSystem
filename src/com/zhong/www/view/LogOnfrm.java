@@ -212,7 +212,6 @@ public class LogOnFrm extends JFrame {
 				}else {
 					new StudentFrm().setVisible(true);
 				}
-				
 			}else{  
 				JOptionPane.showMessageDialog(null, "密码或用户名错误！");
 			}  

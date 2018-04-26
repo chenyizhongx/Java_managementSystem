@@ -75,7 +75,7 @@ public class TeacherFrm extends JFrame {
 		});
 		mntmNewMenuItem.setIcon(new ImageIcon(TeacherFrm.class.getResource("/javax/swing/plaf/metal/icons/ocean/collapsed.gif")));
 		menu.add(mntmNewMenuItem);
-		
+		 
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("\u7BA1\u7406\u5B66\u751F\u4FE1\u606F");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.Vector;
 
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
@@ -17,9 +18,10 @@ import javax.swing.table.DefaultTableModel;
 
 import com.zhong.java.dao.StuInformationDao;
 import com.zhong.java.model.StuInformation;
+import com.zhong.java.model.User;
 import com.zhong.www.util.DbUtil;
 
-public class StuMessageFrm extends JFrame {
+public class StuMessageFrm extends JInternalFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -46,9 +48,9 @@ public class StuMessageFrm extends JFrame {
 	 * Create the frame.
 	 */
 	public StuMessageFrm() {
+		setIconifiable(true);
+		setClosable(true);
 		setTitle("\u4E2A\u4EBA\u4FE1\u606F");
-		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 861, 582);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -59,16 +61,16 @@ public class StuMessageFrm extends JFrame {
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(42)
+					.addGap(52)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 721, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(70, Short.MAX_VALUE))
+					.addContainerGap(72, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(144)
+					.addGap(122)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 189, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(192, Short.MAX_VALUE))
+					.addContainerGap(226, Short.MAX_VALUE))
 		);
 		
 		table = new JTable();
@@ -99,19 +101,21 @@ public class StuMessageFrm extends JFrame {
 	 */
 	private void fillTable(StuInformation StuInformation) {
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
-		dtm.setRowCount(0);  //设置成零行
+		dtm.setRowCount(0); 	 //设置成零行
 		Connection con = null;
 		try {
+		//User user = new User(userName, password);
 		con = dbUtil.getCon();  
 		ResultSet rs = StuInformationDao.list(con, StuInformation);
 		while(rs.next()) {
-			Vector v = new Vector();  
-			v.add(rs.getString("StuNum"));
-			v.add(rs.getString("StuName"));
-			v.add(rs.getString("Sex"));
-			v.add(rs.getString("Mail"));
-			v.add(rs.getString("Phone"));
-			//dtm.addRow(v);	//将一行添加到模型的末尾。新行将包含null值，除非指定行数据。将生成正在添加的行的通知
+				Vector v = new Vector();  
+				v.add(rs.getString("StuNum"));
+				v.add(rs.getString("StuName"));
+				v.add(rs.getString("Sex"));
+				v.add(rs.getString("Mail"));
+				v.add(rs.getString("Phone"));
+				dtm.addRow(v);	//将一行添加到模型的末尾。新行将包含null值，除非指定行数据。将生成正在添加的行的通知
+
 		}
 	}catch(Exception e) {
 		e.printStackTrace();
@@ -123,6 +127,4 @@ public class StuMessageFrm extends JFrame {
 		}
 	}
 }
-	
-
 }

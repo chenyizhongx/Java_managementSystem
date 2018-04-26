@@ -279,6 +279,14 @@ public class StuManagerFrm extends JInternalFrame {
 			}
 		});
 		button.setFont(new Font("宋体", Font.BOLD, 20));
+		
+		JButton btnXainshi = new JButton("\u663E\u793A");
+		btnXainshi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reviewActionPerformed(e);
+			}
+		});
+		btnXainshi.setFont(new Font("宋体", Font.BOLD, 20));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -287,11 +295,13 @@ public class StuManagerFrm extends JInternalFrame {
 					.addComponent(lblNewLabel)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(s_stuNum, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(85)
+					.addGap(57)
 					.addComponent(label)
 					.addGap(18)
 					.addComponent(s_stuName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+					.addComponent(btnXainshi)
+					.addGap(56)
 					.addComponent(button)
 					.addGap(51))
 		);
@@ -301,11 +311,12 @@ public class StuManagerFrm extends JInternalFrame {
 					.addContainerGap()
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel)
-						.addComponent(label)
 						.addComponent(s_stuNum, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(button)
+						.addComponent(label)
 						.addComponent(s_stuName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(button))
-					.addContainerGap(28, Short.MAX_VALUE))
+						.addComponent(btnXainshi))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
@@ -313,6 +324,15 @@ public class StuManagerFrm extends JInternalFrame {
 		this.fillTable(new StuInformation());
 		
 	}
+	/**
+	 * 重新显示列表
+	 * @param e
+	 */
+	private void reviewActionPerformed(ActionEvent e) {
+		StuInformation StuInformation = new StuInformation();
+		this.fillTable(StuInformation);
+	}
+
 	/**
 	 * 学生信息删除事件处理
 	 * @param evt

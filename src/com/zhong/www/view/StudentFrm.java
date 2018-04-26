@@ -24,7 +24,8 @@ import javax.swing.JScrollPane;
 public class StudentFrm extends JFrame {
 
 	private JPanel contentPane;
-	private JDesktopPane table;
+	//private JDesktopPane table;
+	private JDesktopPane table_1 = new JDesktopPane();
 
 	/**
 	 * Launch the application.
@@ -60,7 +61,9 @@ public class StudentFrm extends JFrame {
 		JMenuItem menuItem_1 = new JMenuItem("\u4E2A\u4EBA\u4FE1\u606F\u67E5\u8BE2");
 		menuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 stuActionPerformed(e);
+				StuMessageFrm StuMessageFrm = new StuMessageFrm();
+				StuMessageFrm.setVisible(true);
+				table_1.add(StuMessageFrm);
 			}
 		});
 		menuItem_1.setIcon(new ImageIcon(StudentFrm.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
@@ -89,26 +92,21 @@ public class StudentFrm extends JFrame {
 		JDesktopPane desktopPane = new JDesktopPane();
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 1908, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addComponent(desktopPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
 		);
 		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 1022, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addComponent(desktopPane, GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
+					.addContainerGap())
 		);
+		table_1.setBounds(0, 0, 1904, 967);
+		desktopPane.add(table_1);
 		contentPane.setLayout(gl_contentPane);
 		//设置居中
 		this.setLocationRelativeTo(null);
 		//最大化
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	}
-
-	protected void stuActionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		new StuMessageFrm().setVisible(true);
 	}
 }

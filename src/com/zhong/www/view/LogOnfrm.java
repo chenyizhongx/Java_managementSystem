@@ -230,9 +230,4 @@ public class LogOnFrm extends JFrame {
 		this.passwordTxt.setText("");
 	}
 }
-
-
-
-
-
-
+ 

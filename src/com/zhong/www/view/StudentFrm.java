@@ -61,9 +61,9 @@ public class StudentFrm extends JFrame {
 		JMenuItem menuItem_1 = new JMenuItem("\u4E2A\u4EBA\u4FE1\u606F\u67E5\u8BE2");
 		menuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StuMessageFrm StuMessageFrm = new StuMessageFrm();
-				StuMessageFrm.setVisible(true);
-				table_1.add(StuMessageFrm);
+				StuInformationFrm StuInformationFrm = new StuInformationFrm();
+				StuInformationFrm.setVisible(true);
+				table_1.add(StuInformationFrm);
 			}
 		});
 		menuItem_1.setIcon(new ImageIcon(StudentFrm.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));

@@ -8,13 +8,13 @@ import com.zhong.java.model.StuInformation;
 import com.zhong.java.model.User;
 
 /**
- * ÓÃ»§daoÀà
+ * ç”¨æˆ·daoç±»
  * @author zhong
  *
  */
 public class UserDao{
 	/**
-	 * µÇÂ¼ÑéÖ¤
+	 * ç™»å½•éªŒè¯Ö¤
 	 * @param con
 	 * @param user
 	 * @return
@@ -27,7 +27,7 @@ public class UserDao{
 		pstmt.setString(1,user.getUserName());
 		pstmt.setString(2,user.getPassword());
 		pstmt.setString(3, user.getflag());
-		//·µ»Ø½á¹û¼¯
+		//è¿”å›ç»“æœé›†
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {
 			resultUser = new User();
@@ -36,11 +36,10 @@ public class UserDao{
 			resultUser.setPassword(rs.getString("password"));
 			resultUser.setflag(rs.getString("flag"));
 		}
-		
 		return resultUser;
 	}
 	/**
-	 * Ñ§ÉúÕËºÅÃÜÂë´´½¨
+	 * å­¦ç”Ÿè´¦å·å¯†ç åˆ›å»º
 	 * @param con
 	 * @param User
 	 * @return
@@ -56,7 +55,7 @@ public class UserDao{
 	}
 	
  	/**
- 	 * Ñ§ÉúÕËºÅÃÜÂëÉ¾³ı
+ 	 * å­¦ç”Ÿè´¦å·å¯†ç åˆ é™¤
  	 * @param con
  	 * @param id
  	 * @return
@@ -65,12 +64,12 @@ public class UserDao{
  	public int deleted(Connection con,String password)throws Exception{
  		String sql = "delete from t_user where password = ?";
  		PreparedStatement pstmt = con.prepareStatement(sql);
- 		pstmt.setString(1, password);  //½«µÚÒ»¸öidÉè³É1
+ 		pstmt.setString(1, password);
  		return pstmt.executeUpdate();
  	}
  	
  	/**
- 	 * Ñ§ÉúÕËºÅÃÜÂëĞŞ¸Ä
+ 	 * å­¦ç”Ÿè´¦å·å¯†ç ä¿®æ”¹
  	 * @param con
  	 * @param stuInformation
  	 * @return

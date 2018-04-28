@@ -1,12 +1,12 @@
 package com.zhong.java.model;
 /**
- * User ÊµÌå
+ * User å®ä½“
  * @author zhong
  *   
  */
 public class User {
 	
-	//UserÀàµÄ³ÉÔ±±äÁ¿
+	//Userç±»çš„æˆå‘˜å˜é‡
 	private int id;
 	private String UserName;
 	private String password;
@@ -17,7 +17,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	
-	//Éú³É¹¹Ôì·½·¨
+	//ç”Ÿæˆæ„é€ æ–¹æ³•
 	public User(String userName, String password, String flag) {
 		super();
 		UserName = userName;
@@ -25,13 +25,11 @@ public class User {
 		this.password = password;
 	}
 	
-
 	public User(String userName, String password) {
 		super();
 		this.UserName = userName;
 		this.password = password;
 	}
-
 
 	public int getId() {
 		return id;

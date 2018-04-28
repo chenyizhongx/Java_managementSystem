@@ -1,15 +1,15 @@
 package com.zhong.www.util;
 /**
- * ÅĞ¶ÏµÇÂ¼Ê±ÊäÈëµÄÓÃ»§ÃûºÍÃÜÂëÊÇ·ñÎª¿Õ£¬ÈôÎª¿ÕÔòµ¯³öµ¯´°ÌáÊ¾
+ * åˆ¤æ–­ç™»å½•æ—¶è¾“å…¥çš„ç”¨æˆ·åå’Œå¯†ç æ˜¯å¦ä¸ºç©ºï¼Œè‹¥ä¸ºç©ºåˆ™å¼¹å‡ºå¼¹çª—æç¤º
  * @author zhong
  *
  */
 public class StringNull {
 	/*
-	 * ÅĞ¶ÏÊÇ·ñÎª¿Õ
+	 * åˆ¤æ–­æ˜¯å¦ä¸ºç©º
 	 */
 	public static boolean isEmply(String str) {
-		//×Ö·û´®Îª¿Õ»òÕßÈ¥µô¿Õ¸ñºóÎª¿Õ
+		//å­—ç¬¦ä¸²ä¸ºç©ºæˆ–è€…å»æ‰ç©ºæ ¼åä¸ºç©º
 		if(str == null || "".equals(str.trim())) {
 			return true;
 		}else {
@@ -18,7 +18,7 @@ public class StringNull {
 	}
 	
 	/*
-	 * ÅĞ¶ÏÊÇ·ñ²»Îª¿Õ	
+	 *åˆ¤æ–­æ˜¯å¦ä¸ä¸ºç©º
 	 */
 	public static boolean isNoEmply(String str) {
 		if(str != null && !"".equals(str.trim())) {

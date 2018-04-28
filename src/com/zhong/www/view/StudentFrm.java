@@ -28,22 +28,6 @@ public class StudentFrm extends JFrame {
 	private JDesktopPane table_1 = new JDesktopPane();
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StudentFrm frame = new StudentFrm();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public StudentFrm() {
@@ -77,8 +61,8 @@ public class StudentFrm extends JFrame {
 		menuItem.setIcon(new ImageIcon(StudentFrm.class.getResource("/com/sun/javafx/webkit/prism/resources/missingImage.png")));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//µ¯³ö´°¿ÚÈ·ÈÏÊÇ·ñÍË³ö
-				int result = JOptionPane.showConfirmDialog(null, "ÊÇ·ñÍÆ³öÏµÍ³");
+				//å¼¹å‡ºçª—å£ç¡®è®¤æ˜¯å¦é€€å‡º
+				int result = JOptionPane.showConfirmDialog(null, "æ˜¯å¦é€€å‡ºç³»ç»Ÿ");
 				if(0 == result) {
 					dispose();
 				}
@@ -104,9 +88,9 @@ public class StudentFrm extends JFrame {
 		table_1.setBounds(0, 0, 1904, 967);
 		desktopPane.add(table_1);
 		contentPane.setLayout(gl_contentPane);
-		//ÉèÖÃ¾ÓÖĞ
+		//è®¾ç½®å±…ä¸­
 		this.setLocationRelativeTo(null);
-		//×î´ó»¯
+		//æœ€å¤§åŒ–
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 }

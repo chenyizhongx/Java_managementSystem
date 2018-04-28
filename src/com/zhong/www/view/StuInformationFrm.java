@@ -22,22 +22,6 @@ public class StuInformationFrm extends JInternalFrame {
 	private StuInformationDao StuInformationDao = new StuInformationDao();
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StuInformationFrm frame = new StuInformationFrm();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public StuInformationFrm() {
@@ -78,35 +62,34 @@ public class StuInformationFrm extends JInternalFrame {
 	}	
 	
 	/** 
-	 * ³õÊ¼»¯ĞÅÏ¢ÁĞ±í
+	 * åˆå§‹åŒ–ä¿¡æ¯åˆ—è¡¨
 	 * @param tuInformation
 	 */
 	private void fillTable(StuInformation StuInformation) {
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
-		dtm.setRowCount(0);  //ÉèÖÃ³ÉÁãĞĞ
+		dtm.setRowCount(0);   //è®¾ç½®æˆé›¶è¡Œ
 		Connection con = null;
 		try {
-		//User user = new User(userName, password);
-		con = dbUtil.getCon();  
-		ResultSet rs = StuInformationDao.list(con, StuInformation);
-		while(rs.next()) {
-				Vector v = new Vector();  
-				v.add(rs.getString("StuNum"));
-				v.add(rs.getString("StuName"));
-				v.add(rs.getString("Sex"));
-				v.add(rs.getString("Mail"));
-				v.add(rs.getString("Phone"));
-				dtm.addRow(v);	//½«Ò»ĞĞÌí¼Óµ½Ä£ĞÍµÄÄ©Î²¡£ĞÂĞĞ½«°üº¬nullÖµ£¬³ı·ÇÖ¸¶¨ĞĞÊı¾İ¡£½«Éú³ÉÕıÔÚÌí¼ÓµÄĞĞµÄÍ¨Öª
-
-		}
-	}catch(Exception e) {
-		e.printStackTrace();
-	}finally {
-		try {
-			dbUtil.closeCon(con);
+			//User user = new User(userName, password);
+			con = dbUtil.getCon();  
+			ResultSet rs = StuInformationDao.list(con, StuInformation);
+			while(rs.next()) {
+					Vector v = new Vector();  
+					v.add(rs.getString("StuNum"));
+					v.add(rs.getString("StuName"));
+					v.add(rs.getString("Sex"));
+					v.add(rs.getString("Mail"));
+					v.add(rs.getString("Phone"));
+					dtm.addRow(v);	//å°†ä¸€è¡Œæ·»åŠ åˆ°æ¨¡å‹çš„æœ«å°¾ã€‚æ–°è¡Œå°†åŒ…å«nullå€¼ï¼Œé™¤éæŒ‡å®šè¡Œæ•°æ®ã€‚å°†ç”Ÿæˆæ­£åœ¨æ·»åŠ çš„è¡Œçš„é€šçŸ¥ Öª
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				dbUtil.closeCon(con);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
-}
 }

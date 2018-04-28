@@ -20,9 +20,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import com.zhong.java.dao.UserDao;
+import com.zhong.java.model.StuInformation;
 import com.zhong.java.model.User;
 import com.zhong.www.util.DbUtil;
-import com.zhong.www.util.StringNull;
+import com.zhong.www.util.StringNull; 
 import javax.swing.JRadioButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ButtonGroup;
@@ -38,7 +39,8 @@ public class LogOnFrm extends JFrame {
 	private DbUtil dbUtil = new DbUtil();
 	private UserDao userDao = new UserDao();
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-
+	public final StuInformation u = new StuInformation();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -68,13 +70,13 @@ public class LogOnFrm extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("\u5B66\u751F\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
-		lblNewLabel.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 33));
+		lblNewLabel.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 33));
 		
 		JLabel lblNewLabel_1 = new JLabel("\u7528\u6237\u540D\uFF1A");
-		lblNewLabel_1.setFont(new Font("Ó×Ô²", Font.BOLD, 25));
+		lblNewLabel_1.setFont(new Font("å¹¼åœ†", Font.BOLD, 25));
 		
 		JLabel lblNewLabel_2 = new JLabel("\u5BC6  \u7801\uFF1A");
-		lblNewLabel_2.setFont(new Font("Ó×Ô²", Font.BOLD, 25));
+		lblNewLabel_2.setFont(new Font("å¹¼åœ†", Font.BOLD, 25));
 		
 		UserNameTxt = new JTextField();
 		UserNameTxt.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 20));
@@ -86,7 +88,7 @@ public class LogOnFrm extends JFrame {
 				loginActionPerformed(arg0);
 			}
 		});
-		logIn.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		logIn.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		logIn.setForeground(new Color(0, 0, 128));
 		
 		JButton reset = new JButton("\u91CD\u7F6E");
@@ -95,15 +97,15 @@ public class LogOnFrm extends JFrame {
 				resetValueActionPerformed(arg0);
 			}
 		});
-		reset.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		reset.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		reset.setForeground(new Color(0, 0, 128));
 		
 		passwordTxt = new JPasswordField();
-		passwordTxt.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		passwordTxt.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		
 		teacher = new JRadioButton("\u6559\u5E08");
 		teacher.setSelected(true);
-		teacher.setFont(new Font("ºÚÌå", Font.PLAIN, 15));
+		teacher.setFont(new Font("é»‘ä½“", Font.PLAIN, 15));
 		buttonGroup.add(teacher);
 		
 		student = new JRadioButton("\u5B66\u751F");
@@ -112,7 +114,7 @@ public class LogOnFrm extends JFrame {
 				
 			}
 		});
-		student.setFont(new Font("ºÚÌå", Font.PLAIN, 15));
+		student.setFont(new Font("é»‘ä½“", Font.PLAIN, 15));
 		buttonGroup.add(student);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -171,17 +173,18 @@ public class LogOnFrm extends JFrame {
 					.addGap(76))
 		);
 		contentPane.setLayout(gl_contentPane);
-		//ÉèÖÃ¾ÓÖĞ
+		//è®¾ç½®å±…ä¸­
 		this.setLocationRelativeTo(null);
 	}
 
 	/**
-	 * µÇÂ¼ÊÂ¼ş´¦Àí
+	 *  ç™»å½•äº‹ä»¶å¤„ç†
 	 * @param arg0
 	 */
 	private void loginActionPerformed(ActionEvent evt) {
 		String UserName = this.UserNameTxt.getText();
 		String password = new String(this.passwordTxt.getPassword());
+	
 		String flag;
 		if(teacher.isSelected()) {
 			flag = "1";
@@ -190,15 +193,15 @@ public class LogOnFrm extends JFrame {
 		}
 		
 		if(StringNull.isEmply(UserName)) {
-			//Êä³öĞÅÏ¢ºó½áÊø·½·¨
-			JOptionPane.showMessageDialog(null, "ÓÃ»§Ãû²»ÄÜÎª¿Õ£¡");
+			//è¾“å‡ºä¿¡æ¯åç»“æŸæ–¹æ³•
+			JOptionPane.showMessageDialog(null, "ç”¨æˆ·åä¸èƒ½ä¸ºç©ºï¼");
 			return;
 		}
 		if(StringNull.isEmply(password)) {
-			//Êä³öĞÅÏ¢ºó½áÊø·½·¨
-			JOptionPane.showMessageDialog(null, "ÃÜÂë²»ÄÜÎª¿Õ£¡");
+			//è¾“å‡ºä¿¡æ¯åç»“æŸæ–¹æ³•
+			JOptionPane.showMessageDialog(null, "å¯†ç ä¸èƒ½ä¸ºç©ºï¼");
 			return;
-		}	   
+		}   
 		User user = new User(UserName,password,flag);
 		Connection con = null;
 		try {
@@ -206,14 +209,13 @@ public class LogOnFrm extends JFrame {
 			User currentUser = userDao.login(con, user);
 			if (currentUser != null) {  
 				dispose();
-				//JOptionPane.showMessageDialog(null, "µÇÂ¼³É¹¦£¡");
 				if(flag == "1") {
 					new TeacherFrm().setVisible(true);
 				}else {
 					new StudentFrm().setVisible(true);
 				}
 			}else{  
-				JOptionPane.showMessageDialog(null, "ÃÜÂë»òÓÃ»§Ãû´íÎó£¡");
+				JOptionPane.showMessageDialog(null, "å¯†ç æˆ–ç”¨æˆ·åé”™è¯¯ï¼");
 			}  
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -221,7 +223,7 @@ public class LogOnFrm extends JFrame {
 	}
 
 	/**
-	 * ÖØÖÃÊÂ¼ş´¦Àí
+	 * é‡ç½®äº‹ä»¶å¤„ç†
 	 * @param arg0
 	 */
 	private void resetValueActionPerformed(ActionEvent evt) {
@@ -230,4 +232,3 @@ public class LogOnFrm extends JFrame {
 		this.passwordTxt.setText("");
 	}
 }
- 

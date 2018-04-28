@@ -34,22 +34,6 @@ public class TeacherFrm extends JFrame {
 	private JDesktopPane table;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TeacherFrm frame = new TeacherFrm();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public TeacherFrm() {
@@ -94,8 +78,8 @@ public class TeacherFrm extends JFrame {
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5B89\u5168\u9000\u51FA");
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//µ¯³ö´°¿ÚÈ·ÈÏÊÇ·ñÍË³ö
-				int result = JOptionPane.showConfirmDialog(null, "ÊÇ·ñÍÆ³öÏµÍ³");
+				//å¼¹å‡ºçª—å£ç¡®è®¤æ˜¯å¦é€€å‡º
+				int result = JOptionPane.showConfirmDialog(null, "æ˜¯å¦é€€å‡ºç³»ç»Ÿ");
 				if(0 == result) {
 					dispose();
 				}
@@ -115,9 +99,9 @@ public class TeacherFrm extends JFrame {
 		table = new JDesktopPane();
 		table.setBounds(0, 0, 1907, 966);
 		desktopPane.add(table);
-		//ÉèÖÃ¾ÓÖĞ
+		//è®¾ç½®å±…ä¸­
 		this.setLocationRelativeTo(null);
-		//×î´ó»¯
+		//æœ€å¤§åŒ–
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 }

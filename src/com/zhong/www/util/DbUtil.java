@@ -4,17 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * Êı¾İ¿â¹¤¾ßÀà
+ * æ•°æ®åº“å·¥å…·ç±»
  * @author zhong
  *
  */
 public class DbUtil {
-	private String dbUrl ="jdbc:mysql://localhost:3306/db_stu";  //Êı¾İ¿âÁ¬½ÓµØÖ·
-	private String dbUserName="root";			//ÓÃ»§Ãû
-	private String dbPassword="zhongYi123.";	//ÃÜÂë
-	private String jdbcName="com.mysql.jdbc.Driver";	//Çı¶¯Ãû³Æ
+	private String dbUrl ="jdbc:mysql://localhost:3306/db_stu";   //æ•°æ®åº“è¿æ¥åœ°å€Ö·
+	private String dbUserName="root";			//ç”¨æˆ·å
+	private String dbPassword="zhongYi123.";	//å¯†ç 
+	private String jdbcName="com.mysql.jdbc.Driver";	//é©±åŠ¨åç§°
 	/**
-	 * »ñÈ¡Êı¾İ¿âÁ¬½Ó
+	 * è·å–æ•°æ®åº“è¿æ¥
 	 * @return
 	 * @throws Exception
 	 */
@@ -24,7 +24,7 @@ public class DbUtil {
 		return con;
 	}
 	/**
-	 * ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+	 * å…³é—­æ•°æ®åº“è¿æ¥
 	 * @param con
 	 * @throws Exception
 	 */
@@ -39,17 +39,12 @@ public class DbUtil {
 		DbUtil dbUtil = new DbUtil();
 		try {
 			dbUtil.getCon();
-			System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦£¡");
+			System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸï¼");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü£¡");
+			System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥ï¼");
 		}
 		
 	}
-	
-	
-	
-	
-	
 }

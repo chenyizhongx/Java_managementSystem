@@ -54,22 +54,6 @@ public class StuManagerFrm extends JInternalFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StuManagerFrm frame = new StuManagerFrm();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public StuManagerFrm() {
@@ -115,37 +99,37 @@ public class StuManagerFrm extends JInternalFrame {
 		);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u5B66\u53F7");
-		lblNewLabel_1.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		lblNewLabel_1.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		stuNumTxt = new JTextField();
 		stuNumTxt.setEditable(false);
 		stuNumTxt.setColumns(10);
 		
 		JLabel label_1 = new JLabel("\u59D3\u540D");
-		label_1.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		label_1.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		stuNameTxt = new JTextField();
 		stuNameTxt.setColumns(10);
 		
 		JLabel label_2 = new JLabel("\u6027\u522B");
-		label_2.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		label_2.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		maleJrb = new JRadioButton("\u7537");
 		buttonGroup.add(maleJrb);
-		maleJrb.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		maleJrb.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		femaleJrb = new JRadioButton("\u5973");
 		buttonGroup.add(femaleJrb);
-		femaleJrb.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		femaleJrb.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		JLabel label_3 = new JLabel("\u90AE\u7BB1");
-		label_3.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		label_3.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		mailTxt = new JTextField();
 		mailTxt.setColumns(10);
 		
 		JLabel phoneTxt = new JLabel("\u7D27\u6025\u8054\u7CFB\u4EBA\u7535\u8BDD");
-		phoneTxt.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		phoneTxt.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		phoneTxt_1 = new JTextField();
 		phoneTxt_1.setColumns(10);
@@ -156,7 +140,7 @@ public class StuManagerFrm extends JInternalFrame {
 				stuDeleteactionPerformed(evt);
 			}
 		});
-		button_1.setFont(new Font("ËÎÌå", Font.BOLD, 25));
+		button_1.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
 		
 		JButton button_2 = new JButton("\u4FEE\u6539");
 		button_2.addActionListener(new ActionListener() {
@@ -164,7 +148,7 @@ public class StuManagerFrm extends JInternalFrame {
 				stuUpdateActionPerformed();
 			}
 		});
-		button_2.setFont(new Font("ËÎÌå", Font.BOLD, 25));
+		button_2.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
@@ -231,7 +215,7 @@ public class StuManagerFrm extends JInternalFrame {
 		panel_1.setLayout(gl_panel_1);
 		
 		stuTable = new JTable();
-		stuTable.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		stuTable.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		stuTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent met) {
@@ -259,17 +243,17 @@ public class StuManagerFrm extends JInternalFrame {
 		stuTable.getColumnModel().getColumn(4).setPreferredWidth(125);
 		
 		JLabel lblNewLabel = new JLabel("\u5B66\u53F7");
-		lblNewLabel.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		lblNewLabel.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		JLabel label = new JLabel("\u59D3\u540D");
-		label.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		label.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		s_stuNum = new JTextField();
-		s_stuNum.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		s_stuNum.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		s_stuNum.setColumns(10);
 		
 		s_stuName = new JTextField();
-		s_stuName.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		s_stuName.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		s_stuName.setColumns(10);
 		
 		JButton button = new JButton("\u67E5\u8BE2");
@@ -278,7 +262,7 @@ public class StuManagerFrm extends JInternalFrame {
 				stuSearchActionPerformed(e);
 			}
 		});
-		button.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		button.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		
 		JButton btnXainshi = new JButton("\u663E\u793A");
 		btnXainshi.addActionListener(new ActionListener() {
@@ -286,7 +270,7 @@ public class StuManagerFrm extends JInternalFrame {
 				reviewActionPerformed(e);
 			}
 		});
-		btnXainshi.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		btnXainshi.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -325,7 +309,7 @@ public class StuManagerFrm extends JInternalFrame {
 		
 	}
 	/**
-	 * ÖØĞÂÏÔÊ¾ÁĞ±í
+	 * é‡æ–°æ˜¾ç¤ºåˆ—è¡¨
 	 * @param e
 	 */
 	private void reviewActionPerformed(ActionEvent e) {
@@ -334,16 +318,16 @@ public class StuManagerFrm extends JInternalFrame {
 	}
 
 	/**
-	 * Ñ§ÉúĞÅÏ¢É¾³ıÊÂ¼ş´¦Àí
+	 * å­¦ç”Ÿä¿¡æ¯åˆ é™¤äº‹ä»¶å¤„ç†
 	 * @param evt
 	 */
 	private void stuDeleteactionPerformed(ActionEvent evt) {
 		String stuNum = this.stuNumTxt.getText();
 		if(StringNull.isEmply(stuNum)) {
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñÒªÉ¾³ıµÄ¼ÇÂ¼");
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è¦åˆ é™¤çš„è®°å½•");
 			return ;
 		} 
-		int n = JOptionPane.showConfirmDialog(null, "ÊÇ·ñÈ·ÈÏÉ¾³ı¼ÇÂ¼?");
+		int n = JOptionPane.showConfirmDialog(null, "æ˜¯å¦ç¡®è®¤åˆ é™¤è®°å½•?");
 		if(n == 0) {
 			Connection con = null;
 			try {
@@ -351,16 +335,16 @@ public class StuManagerFrm extends JInternalFrame {
 				int deleteNum = StuInformationDao.delete(con, stuNum);
 				int deleteUser = UserDao.deleted(con,stuNum);
 				if(deleteNum == 1) {
-					JOptionPane.showMessageDialog(null, "É¾³ı³É¹¦£¡");
+					JOptionPane.showMessageDialog(null, "åˆ é™¤æˆåŠŸï¼");
 					this.resetValue();
 					this.fillTable(new StuInformation());
 				}else {
-					JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü£¡");
+					JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥ï¼");
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "É¾³ıÊ§°Ü£¡");
+				JOptionPane.showMessageDialog(null, "åˆ é™¤å¤±è´¥ï¼");
 			}finally {
 				try {
 					dbUtil.closeCon(con);
@@ -373,12 +357,12 @@ public class StuManagerFrm extends JInternalFrame {
 	}
 
 	/**
-	 * Ñ§ÉúĞÅÏ¢ĞŞ¸ÄÊÂ¼ş´¦Àí
+	 * å­¦ç”Ÿä¿¡æ¯ä¿®æ”¹äº‹ä»¶å¤„ç†
 	 */
 	private void stuUpdateActionPerformed() {
 		String stuNum = this.stuNumTxt.getText();
 		if(StringNull.isEmply(stuNum)) {
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñÒªĞŞ¸ÄµÄ¼ÇÂ¼");
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è¦ä¿®æ”¹çš„è®°å½•");
 			return ;
 		} 
 		String stuName = this.stuNameTxt.getText();
@@ -386,28 +370,28 @@ public class StuManagerFrm extends JInternalFrame {
 		String phone = this.phoneTxt_1.getText();
 		
 		if(StringNull.isEmply(stuName)) {
-			//Êä³öĞÅÏ¢ºó½áÊø·½·¨
-			JOptionPane.showMessageDialog(null, "ĞÕÃû²»ÄÜÎª¿Õ£¡");
+			//è¾“å‡ºä¿¡æ¯åç»“æŸæ–¹æ³•
+			JOptionPane.showMessageDialog(null, "å§“åä¸èƒ½ä¸ºç©ºï¼");
 			return;
 		}
 		
 		if(StringNull.isEmply(mail)) {
-			//Êä³öĞÅÏ¢ºó½áÊø·½·¨
-			JOptionPane.showMessageDialog(null, "ÓÊÏä²»ÄÜÎª¿Õ£¡");
+			//è¾“å‡ºä¿¡æ¯åç»“æŸæ–¹æ³•
+			JOptionPane.showMessageDialog(null, "é‚®ç®±ä¸èƒ½ä¸ºç©ºï¼");
 			return;
 		}
 		
 		if(StringNull.isEmply(phone)) {
-			//Êä³öĞÅÏ¢ºó½áÊø·½·¨
-			JOptionPane.showMessageDialog(null, "µç»°ºÅÂë²»ÄÜÎª¿Õ£¡");
+			//è¾“å‡ºä¿¡æ¯åç»“æŸæ–¹æ³•
+			JOptionPane.showMessageDialog(null, "ç”µè¯å·ç ä¸èƒ½ä¸ºç©ºï¼");
 			return;
 		}
 		
 		String sex = "";
 		if(maleJrb.isSelected()) {
-			sex = "ÄĞ";
+			sex = "ç”·";
 		}else {
-			sex = "Å®";
+			sex = "å¥³";
 		}
 		
 		StuInformation stuInformation = new StuInformation(stuNum, stuName, sex, mail, phone);
@@ -418,15 +402,15 @@ public class StuManagerFrm extends JInternalFrame {
 			int updateStuInformation = StuInformationDao.update(con, stuInformation);
 			int updateuser = UserDao.update(con,user);
 			if(updateStuInformation == 1) {
-				JOptionPane.showMessageDialog(null, "Ñ§ÉúĞÅÏ¢ĞŞ¸Ä³É¹¦£¡");
+				JOptionPane.showMessageDialog(null, "å­¦ç”Ÿä¿¡æ¯ä¿®æ”¹æˆåŠŸï¼");
 				resetValue();
 				this.fillTable(new StuInformation());
 			}else {
-				JOptionPane.showMessageDialog(null, "Ñ§ÉúĞÅÏ¢ĞŞ¸ÄÊ§°Ü£¡");
+				JOptionPane.showMessageDialog(null, "å­¦ç”Ÿä¿¡æ¯ä¿®æ”¹å¤±è´¥ï¼");
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Ñ§ÉúĞÅÏ¢ĞŞ¸ÄÊ§°Ü£¡");
+			JOptionPane.showMessageDialog(null, "å­¦ç”Ÿä¿¡æ¯ä¿®æ”¹å¤±è´¥ï¼");
 		}finally {
 			try {
 				dbUtil.closeCon(con);
@@ -441,7 +425,7 @@ public class StuManagerFrm extends JInternalFrame {
 	}
 	
 	/**
-	 * ÖØÖÃ±íµ¥
+	 * é‡ç½®è¡¨å•
 	 */
 	private void resetValue() {
 		this.stuNumTxt.setText("");
@@ -454,17 +438,17 @@ public class StuManagerFrm extends JInternalFrame {
 
 
 	/**
-	 * ±í¸ñĞĞµã»÷ÊÂ¼ş´¦Àí
+	 * è¡¨æ ¼è¡Œç‚¹å‡»äº‹ä»¶å¤„ç†
 	 * @param met
 	 */
 	private void stuTablemousePressed(MouseEvent met) {
-		int row = this.stuTable.getSelectedRow();  //»ñÈ¡Ñ¡ÖĞµÄĞĞ
+		int row = this.stuTable.getSelectedRow();   //è·å–é€‰ä¸­çš„è¡Œ
 		this.stuNumTxt.setText((String)stuTable.getValueAt(row, 0));
 		this.stuNameTxt.setText((String)stuTable.getValueAt(row, 1));
 		String sex = (String)stuTable.getValueAt(row, 2);
-		if("ÄĞ".equals(sex)) {
+		if("ç”·".equals(sex)) {
 			this.maleJrb.setSelected(true);
-		}else if("Å®".equals(sex)){
+		}else if("å¥³".equals(sex)){
 			this.femaleJrb.setSelected(true);
 		}
 		this.mailTxt.setText((String)stuTable.getValueAt(row, 3));
@@ -472,7 +456,7 @@ public class StuManagerFrm extends JInternalFrame {
 	}
 
 	/**
-	 * Ñ§ÉúĞÅÏ¢²éÑ¯ÊÂ¼ş´¦Àí
+	 * å­¦ç”Ÿä¿¡æ¯æŸ¥è¯¢äº‹ä»¶å¤„ç†
 	 * @param e
 	 */
 	private void stuSearchActionPerformed(ActionEvent e) {
@@ -484,33 +468,33 @@ public class StuManagerFrm extends JInternalFrame {
 	}
 
 	/** 
-	 * ³õÊ¼»¯ĞÅÏ¢ÁĞ±í
+	 * åˆå§‹åŒ–ä¿¡æ¯åˆ—è¡¨
 	 * @param tuInformation
 	 */
 	private void fillTable(StuInformation StuInformation) {
 		DefaultTableModel dtm = (DefaultTableModel) stuTable.getModel();
-		dtm.setRowCount(0);  //ÉèÖÃ³ÉÁãĞĞ
+		dtm.setRowCount(0);  //è®¾ç½®æˆé›¶è¡Œ
 		Connection con = null;
 		try {
-		con = dbUtil.getCon();  
-		ResultSet rs = StuInformationDao.list(con, StuInformation);
-		while(rs.next()) {
-			Vector v = new Vector();  
-			v.add(rs.getString("StuNum"));
-			v.add(rs.getString("StuName"));
-			v.add(rs.getString("Sex"));
-			v.add(rs.getString("Mail"));
-			v.add(rs.getString("Phone"));
-			dtm.addRow(v);	//½«Ò»ĞĞÌí¼Óµ½Ä£ĞÍµÄÄ©Î²¡£ĞÂĞĞ½«°üº¬nullÖµ£¬³ı·ÇÖ¸¶¨ĞĞÊı¾İ¡£½«Éú³ÉÕıÔÚÌí¼ÓµÄĞĞµÄÍ¨Öª
-		}
-	}catch(Exception e) {
-		e.printStackTrace();
-	}finally {
-		try {
-			dbUtil.closeCon(con);
+			con = dbUtil.getCon();  
+			ResultSet rs = StuInformationDao.list(con, StuInformation);
+			while(rs.next()) {
+				Vector v = new Vector();  
+				v.add(rs.getString("StuNum"));
+				v.add(rs.getString("StuName"));
+				v.add(rs.getString("Sex"));
+				v.add(rs.getString("Mail"));
+				v.add(rs.getString("Phone"));
+				dtm.addRow(v);		//å°†ä¸€è¡Œæ·»åŠ åˆ°æ¨¡å‹çš„æœ«å°¾ã€‚æ–°è¡Œå°†åŒ…å«nullå€¼ï¼Œé™¤éæŒ‡å®šè¡Œæ•°æ®ã€‚å°†ç”Ÿæˆæ­£åœ¨æ·»åŠ çš„è¡Œçš„é€šçŸ¥Öª
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				dbUtil.closeCon(con);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
-}
 }

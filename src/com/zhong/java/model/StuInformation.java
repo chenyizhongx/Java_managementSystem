@@ -1,6 +1,6 @@
 package com.zhong.java.model;
 /**
- * 学生实体
+ * 瀛︾敓淇℃伅瀹炰綋
  * @author zhong
  *
  */
@@ -11,14 +11,11 @@ public class StuInformation {
 	private String sex;
 	private String mail;
 	private String phone;
-	
+
 	public StuInformation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
 	
 	public StuInformation(String stuNum, String stuName) {
 		super();
@@ -39,9 +36,6 @@ public class StuInformation {
 		this.phone = phone;
 	}
 
-
-
-
 	public StuInformation(String stuNum, String stuName, String sex, String mail, String phone) {
 		super();
 		this.stuNum = stuNum;
@@ -50,8 +44,6 @@ public class StuInformation {
 		this.mail = mail;
 		this.phone = phone;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -91,12 +83,9 @@ public class StuInformation {
 	}
 
 
-
-
 	public static void setVisible(boolean b) {
 		// TODO Auto-generated method stub
 		
 	}
-	 
-	
+	 	
 }
